@@ -1,3 +1,11 @@
+config WIFI_DRIVER
+	bool
+	default y
+
+config CHIP_MT7615E
+	bool
+	default y
+
 config MT_WIFI
 	tristate "MT WIFI Driver"
 	select WIFI_BASIC_FUNC if MT_WIFI
