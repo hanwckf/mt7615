@@ -1,77 +1,20 @@
+config WIFI_DRIVER
+	bool
+	default y
+
+config CHIP_MT7615E
+	bool
+	default y
+
 config MT_WIFI
 	tristate "MT WIFI Driver"
 	select WIFI_BASIC_FUNC if MT_WIFI
 
-config MT_WIFI_PATH
-		string
-		depends on MT_WIFI
-		default "mt_wifi"
-
 if MT_WIFI
 menu "WiFi Generic Feature Options"
-choice
-		prompt "EEPROM Type of 1st Card"
-		depends on ! FIRST_IF_NONE
-
-		config FIRST_IF_EEPROM_FLASH
-		bool "FLASH"
-
-		config FIRST_IF_EEPROM_EFUSE
-		bool "EFUSE"
-endchoice
-
-config RT_FIRST_CARD_EEPROM
-		string
-		depends on ! FIRST_IF_NONE
-		default "flash" if FIRST_IF_EEPROM_FLASH
-
-choice
-		prompt "EEPROM Type of 2nd Card"
-		depends on ! SECOND_IF_NONE
-
-		config SECOND_IF_EEPROM_FLASH
-		bool "FLASH"
-
-		config SECOND_IF_EEPROM_PROM
-		bool "EEPROM"
-
-		config SECOND_IF_EEPROM_EFUSE
-		bool "EFUSE"
-
-endchoice
-
-config RT_SECOND_CARD_EEPROM
-		string
-		depends on ! SECOND_IF_NONE
-		default "prom" if SECOND_IF_EEPROM_PROM
-		default "efuse" if SECOND_IF_EEPROM_EFUSE
-		default "flash" if SECOND_IF_EEPROM_FLASH
-
-choice
-		prompt "EEPROM Type of 3th Card"
-		depends on ! THIRD_IF_NONE
-
-		config THIRD_IF_EEPROM_FLASH
-		bool "FLASH"
-
-		config THIRD_IF_EEPROM_PROM
-		bool "EEPROM"
-
-		config THIRD_IF_EEPROM_EFUSE
-		bool "EFUSE"
-
-endchoice
-
-config RT_THIRD_CARD_EEPROM
-		string
-		depends on ! THIRD_IF_NONE
-		default "prom" if THIRD_IF_EEPROM_PROM
-		default "efuse" if THIRD_IF_EEPROM_EFUSE
-		default "flash" if THIRD_IF_EEPROM_FLASH
-	
 config MULTI_INF_SUPPORT
 		bool
-		default y if !FIRST_IF_NONE && !SECOND_IF_NONE
+		default y if !RT_FIRST_IF_NONE && !RT_SECOND_IF_NONE
 		
 config WIFI_BASIC_FUNC
 	bool "Basic Functions"
@@ -148,9 +91,9 @@ config MULTI_PROFILE_SUPPORT
     default y
 
 config DEFAULT_5G_PROFILE
-    bool "5G default profile for DBDC"
+	bool "5G default profile for DBDC"
 	depends on DBDC_MODE
-    default y
+	default y
 
 config WSC_INCLUDED
 	bool "WSC (WiFi Simple Config)"
@@ -265,7 +208,7 @@ config RF_LOCKDOWN_SUPPORT
 	bool "RF Lockdown Support"
 	depends on WIFI_DRIVER
 	default n	
-		
+	
 #config LED_CONTROL_SUPPORT
 #	bool "LED Support"
 #	depends on WIFI_DRIVER
@@ -320,7 +263,7 @@ config RED_SUPPORT
 
 choice
         prompt "PA LNA Type of 1st Card"
-		depends on ! FIRST_IF_NONE
+		depends on ! RT_FIRST_IF_NONE
 		
 		config FIRST_IF_EPAELNA
 		bool "ePAeLNA"
@@ -333,7 +276,7 @@ choice
 endchoice
 choice
         prompt "PA LNA Type of 2nd Card"
-		depends on ! SECOND_IF_NONE
+		depends on ! RT_SECOND_IF_NONE
 		
 		config SECOND_IF_EPAELNA
 		bool "ePAeLNA"
@@ -346,7 +289,7 @@ choice
 endchoice
 choice
         prompt "PA LNA Type of 3rd Card"
-		depends on ! THIRD_IF_NONE
+		depends on ! RT_THIRD_IF_NONE
 		
 		config THIRD_IF_EPAELNA
 		bool "ePAeLNA"
@@ -420,7 +363,7 @@ menu "WiFi Operation Modes"
     endchoice
 
     if WIFI_MODE_AP || WIFI_MODE_BOTH
-		source "drivers/net/wireless/mt_wifi_ap/Kconfig"
+		source "drivers/net/wireless/ralink/mt7615_ap/Kconfig"
     endif
 
 #    if WIFI_MODE_STA || WIFI_MODE_BOTH

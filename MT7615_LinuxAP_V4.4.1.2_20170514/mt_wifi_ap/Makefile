@@ -1,7 +1,3 @@
-EXTRA_CFLAGS = -Idrivers/net/wireless/mt_wifi/include \
-				-Idrivers/net/wireless/mt_wifi/embedded/include \
-				-Idrivers/net/wireless/mt_wifi/ate/include
-
 ifeq ($(CONFIG_SUPPORT_OPENWRT),y)
 EXTRA_CFLAGS = -I$(src)/../src/include \
 				-I$(src)/../src/embedded/include \
@@ -10,12 +6,12 @@ DRV_NAME = mt7628
 SRC_DIR = ../src/embedded
 obj-m += $(DRV_NAME).o
 else
-EXTRA_CFLAGS = -Idrivers/net/wireless/mt_wifi/include \
-				-Idrivers/net/wireless/mt_wifi/embedded/include \
-				-Idrivers/net/wireless/mt_wifi/ate/include
-DRV_NAME = mt_wifi
-SRC_DIR = ../mt_wifi
-SRC_EMBEDDED_DIR = ../mt_wifi/embedded
+EXTRA_CFLAGS = -Idrivers/net/wireless/ralink/mt7615/include \
+				-Idrivers/net/wireless/ralink/mt7615/embedded/include \
+				-Idrivers/net/wireless/ralink/mt7615/ate/include
+DRV_NAME = mt_7615e
+SRC_DIR = ../mt7615
+SRC_EMBEDDED_DIR = ../mt7615/embedded
 obj-$(CONFIG_MT_AP_SUPPORT) += $(DRV_NAME).o
 endif
 
@@ -946,5 +942,5 @@ EXTRA_CFLAGS += -DOUI_CHECK_SUPPORT -DHTC_DECRYPT_IOT
 
 MODULE_FLAGS=$(EXTRA_CFLAGS)
 export MODULE_FLAGS
-obj-m+=$(SRC_EMBEDDED_DIR)/tools/plug_in/
+#obj-m+=$(SRC_EMBEDDED_DIR)/tools/plug_in/
 

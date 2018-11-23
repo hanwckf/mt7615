@@ -918,7 +918,7 @@ VOID APCls2errAction(RTMP_ADAPTER *pAd, RX_BLK *pRxBlk)
 		}
 	}
 
-#if MT_DFS_SUPPORT
+#ifdef MT_DFS_SUPPORT
 			if(DfsIsClass2DeauthDisable(pAd))
 			{
 				MTWF_LOG(DBG_CAT_AP, DBG_SUBCAT_ALL, DBG_LVL_OFF,

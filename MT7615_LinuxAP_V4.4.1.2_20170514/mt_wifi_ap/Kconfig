@@ -1,5 +1,9 @@
+config MT7615_AP
+	tristate "MT7615 AP support"
+	select MT_AP_SUPPORT
+
 config MT_AP_SUPPORT
-	tristate "Ralink RT2860 802.11n AP support"
+	tristate
 #	depends on NET_RADIO 
 	select WIRELESS_EXT
 	select WEXT_SPY

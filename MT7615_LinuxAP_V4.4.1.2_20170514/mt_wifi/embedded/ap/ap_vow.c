@@ -17,7 +17,6 @@
 #endif /* MTK_LICENSE */
 #include "rt_config.h"
 #include "mcu/mt_cmd.h"
-
 #ifdef VOW_SUPPORT
 #define UMAC_DRR_TABLE_CTRL0            (0x00008388)
 

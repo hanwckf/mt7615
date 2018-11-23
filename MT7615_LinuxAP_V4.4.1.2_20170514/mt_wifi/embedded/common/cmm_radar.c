@@ -431,11 +431,13 @@ NTSTATUS Dot11HCntDownTimeoutAction(PRTMP_ADAPTER pAd, PCmdQElmt CMDQelmt)
 		/* Normal DFS */
 		pAd->Dot11_H.RDMode = RD_SILENCE_MODE;	
 		APStopByRf(pAd, RFIC_5GHZ);
+#ifdef MT_DFS_SUPPORT
 		if(DfsStopWifiCheck(pAd))
 		{
 			MTWF_LOG(DBG_CAT_AP, DBG_SUBCAT_ALL, DBG_LVL_OFF, ("[%s] Stop AP Startup\n",__FUNCTION__));
 			return 0;  
 		}
+#endif
 		APStartUpByRf(pAd, RFIC_5GHZ);	
 #ifdef MT_DFS_SUPPORT
 		if (pAd->CommonCfg.dbdc_mode)

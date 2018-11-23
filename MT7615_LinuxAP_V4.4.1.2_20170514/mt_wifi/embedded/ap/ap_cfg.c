@@ -2013,7 +2013,7 @@ static struct {
 	{"bcninfo",		ShowBcnProc},
 
 	{"cn_info",       ShowCnInfoProc},
-	{"pdmainfo", 	ShowPDMAProc},
+//	{"pdmainfo", 	ShowPDMAProc},
     {NULL,}
 };
 

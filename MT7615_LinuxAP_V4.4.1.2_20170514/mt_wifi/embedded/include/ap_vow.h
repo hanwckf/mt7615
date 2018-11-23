@@ -251,10 +251,6 @@ typedef struct _VOW_UI_CONFIG
     UINT16  val[0];
 } VOW_UI_CONFIG, *P_VOW_UI_CONFIG;
 
-/* function prototype */
-typedef struct _RTMP_ADAPTER *PRTMP_ADAPTER;
-typedef struct _EDCA_PARM *PEDCA_PARM;
-
 /* weighted airtime fairness*/
 
 typedef struct _VOW_WATF_ENTRY {
@@ -267,475 +263,474 @@ typedef struct GNU_PACKED _VOW_WATF {
 } VOW_WATF, *PVOW_WATF;
 
 
-VOID vow_init(PRTMP_ADAPTER pad);
-VOID vow_init_sta(PRTMP_ADAPTER pad);
-VOID vow_init_group(PRTMP_ADAPTER pad);
-VOID vow_init_rx(PRTMP_ADAPTER pad);
-VOID vow_init_misc(PRTMP_ADAPTER pad);
-VOID vow_reset(PRTMP_ADAPTER pad);
-VOID vow_reset_dvt(PRTMP_ADAPTER pad);
+VOID vow_init(struct _RTMP_ADAPTER *pad);
+VOID vow_init_sta(struct _RTMP_ADAPTER *pad);
+VOID vow_init_group(struct _RTMP_ADAPTER *pad);
+VOID vow_init_rx(struct _RTMP_ADAPTER *pad);
+VOID vow_init_misc(struct _RTMP_ADAPTER *pad);
+VOID vow_reset(struct _RTMP_ADAPTER *pad);
+VOID vow_reset_dvt(struct _RTMP_ADAPTER *pad);
 
-UINT16 vow_convert_rate_token(PRTMP_ADAPTER pad, UINT8 type, UINT8 group_id);
-UINT16 vow_convert_airtime_token(PRTMP_ADAPTER pad, UINT8 type, UINT8 group_id);
-VOID vow_set_client(PRTMP_ADAPTER pad, UINT8 group, UINT8 sta_id);
-VOID vow_group_band_map(PRTMP_ADAPTER pad, UCHAR band_idx, UCHAR group_idx);
-VOID vow_mbss_grp_band_map(PRTMP_ADAPTER pad, struct wifi_dev *wdev);
-VOID vow_mbss_wmm_map(PRTMP_ADAPTER pad, struct wifi_dev *wdev);
-VOID vow_mbss_init(PRTMP_ADAPTER pad, struct wifi_dev *wdev);
-VOID vow_update_om_wmm(PRTMP_ADAPTER pad, struct wifi_dev *wdev, PEDCA_PARM pApEdcaParm);
-BOOLEAN vow_is_enabled(PRTMP_ADAPTER pad);
-VOID vow_atf_off_init(PRTMP_ADAPTER pad);
-INT32 vow_set_sta(PRTMP_ADAPTER pad, UINT8 sta_id, UINT32 subcmd);
+UINT16 vow_convert_rate_token(struct _RTMP_ADAPTER *pad, UINT8 type, UINT8 group_id);
+UINT16 vow_convert_airtime_token(struct _RTMP_ADAPTER *pad, UINT8 type, UINT8 group_id);
+VOID vow_set_client(struct _RTMP_ADAPTER *pad, UINT8 group, UINT8 sta_id);
+VOID vow_group_band_map(struct _RTMP_ADAPTER *pad, UCHAR band_idx, UCHAR group_idx);
+VOID vow_mbss_grp_band_map(struct _RTMP_ADAPTER *pad, struct wifi_dev *wdev);
+VOID vow_mbss_wmm_map(struct _RTMP_ADAPTER *pad, struct wifi_dev *wdev);
+VOID vow_mbss_init(struct _RTMP_ADAPTER *pad, struct wifi_dev *wdev);
+VOID vow_update_om_wmm(struct _RTMP_ADAPTER *pad, struct wifi_dev *wdev, struct _EDCA_PARM *pApEdcaParm);
+BOOLEAN vow_is_enabled(struct _RTMP_ADAPTER *pad);
+VOID vow_atf_off_init(struct _RTMP_ADAPTER *pad);
+INT32 vow_set_sta(struct _RTMP_ADAPTER *pad, UINT8 sta_id, UINT32 subcmd);
 
 INT set_vow_min_rate_token(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_rate_token(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_min_airtime_token(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_airtime_token(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_min_rate_bucket(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_rate_bucket(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_min_airtime_bucket(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_airtime_bucket(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_backlog_size(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_wait_time(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_group_dwrr_max_wait_time(
-    IN  PRTMP_ADAPTER pad,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_pause(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_group(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_bw_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_refill_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_airtime_fairness_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_txop_switch_bss_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_dbdc_search_rule(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_refill_period(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_bss_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_dwrr_max_wait_time(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_airtime_ctrl_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_bw_ctrl_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_dwrr_quantum(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_frr_quantum(
-	IN	PRTMP_ADAPTER pad,
+	IN	struct _RTMP_ADAPTER *pad,
 	IN	RTMP_STRING *arg);
 INT set_vow_bss_dwrr_quantum(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_dwrr_quantum_id(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_min_rate(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_rate(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_min_ratio(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_max_ratio(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_counter_clr(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_airtime_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_ed_offset(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_obss_backoff(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_add_obss(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_add_non_wifi(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_wmm_backoff(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_non_qos_backoff(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_om_wmm_backoff(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_repeater_wmm_backoff(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_bss_wmmset(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_rx_om_wmm_select(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_charge_sta_dwrr(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_charge_bw_time(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_charge_bw_len(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_charge_bw_dwrr(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_life_time(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 /* STA */
 
 INT set_vow_sta_ac_priority(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_psm(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 /* M2M test */
 INT set_vow_pkt_ac(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_monitor_sta(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_monitor_bss(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_monitor_mbss(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_avg_num(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_dvt_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_cloned_wtbl(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_ack_all(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_ack(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_wmm_all(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_wmm(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_ac_all(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_ac(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_tx_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_tx_en_all(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_mbss(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_show_sta(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_show_mbss(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_dump_vow(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_dump_sta(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_dump_bss_bitmap(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_dump_bss(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT vow_show_bss_atoken(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT vow_show_bss_ltoken(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT vow_show_bss_dtoken(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT vow_show_sta_dtoken(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_bcmc_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 VOID vow_display_info_periodic(
-    IN  PRTMP_ADAPTER pAd);
+    IN  struct _RTMP_ADAPTER *pAd);
 /* for CR4 commands */
 INT set_vow_sta_cnt(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_q(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta2_q(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_sta_th(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 /* show */
 INT show_vow_rx_time(
-    IN  PRTMP_ADAPTER pAd, 
+    IN  struct _RTMP_ADAPTER *pAd, 
     IN  RTMP_STRING *arg);
 
 INT show_vow_get_sta_token(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_sta_conf(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_all_sta_conf(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_bss_conf(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_all_bss_conf(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_info(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 /* airtime estimator */
 INT set_vow_at_est_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_at_mon_period(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_group2band_map(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 /* bad node detector */
 INT set_vow_bn_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_bn_mon_period(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_bn_fallback_th(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_bn_per_th(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 // VOW rx counter test
 INT set_vow_counter_test_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 INT set_vow_counter_test_period(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 INT set_vow_counter_test_band(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 INT set_vow_counter_test_avgcnt(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 INT set_vow_counter_test_target(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 //help
 
 INT set_vow_help(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT show_vow_help(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 //WATF
 
 VOID vow_reset_watf(
-	IN PRTMP_ADAPTER pad);
+	IN struct _RTMP_ADAPTER *pAd);
 
 BOOLEAN vow_watf_is_enabled(
-	IN PRTMP_ADAPTER pad);
+	IN struct _RTMP_ADAPTER *pAd);
 
 INT show_vow_watf_info(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_watf_en(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_watf_q(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_watf_add_entry(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 INT set_vow_watf_del_entry(
-    IN  PRTMP_ADAPTER pAd,
+    IN  struct _RTMP_ADAPTER *pAd,
     IN  RTMP_STRING *arg);
 
 VOID set_vow_watf_sta_dwrr(
-	IN	PRTMP_ADAPTER pAd,
+	IN	struct _RTMP_ADAPTER *pAd,
 	IN	UINT8 *Addr,
 	IN	UINT8 Wcid);
 
 #else
-typedef struct _RTMP_ADAPTER *PRTMP_ADAPTER;
-VOID vow_atf_off_init(PRTMP_ADAPTER pad);
+VOID vow_atf_off_init(struct _RTMP_ADAPTER *pad);
 #endif
 
 #endif /* __AP_VOW_H_ */
