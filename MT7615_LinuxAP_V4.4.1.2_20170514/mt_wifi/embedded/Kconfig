@@ -243,10 +243,10 @@ config UAPSD
 	depends on MT_AP_SUPPORT || MT_STA_SUPPORT
 	default y
 
-config TCP_RACK_SUPPORT
-	bool "TCP Reduced ACK  support"
-	depends on WIFI_DRIVER
-	default n
+#config TCP_RACK_SUPPORT
+#	bool "TCP Reduced ACK  support"
+#	depends on WIFI_DRIVER
+#	default n
 
 #### PA_LNA_Type choice
 
