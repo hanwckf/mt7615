@@ -553,7 +553,7 @@ void ba_flush_reordering_timeout_mpdus(
     			pBAEntry->LastIndSeq = Sequence;
     		}
 
-		MTWF_LOG(DBG_CAT_PROTO, CATPROTO_BA, DBG_LVL_OFF, ("%x, flush one!\n", pBAEntry->LastIndSeq));
+		MTWF_LOG(DBG_CAT_PROTO, CATPROTO_BA, DBG_LVL_TRACE, ("%x, flush one!\n", pBAEntry->LastIndSeq));
 
 	}
 }
@@ -768,7 +768,7 @@ BOOLEAN BARecSessionAdd(
 		pBAEntry->REC_BA_Status = Recipient_Initialization;
 		pBAEntry->check_amsdu_miss = TRUE;
 
-		MTWF_LOG(DBG_CAT_PROTO, CATPROTO_BA, DBG_LVL_OFF, ("Start Seq = %08x\n",  pFrame->BaStartSeq.field.StartSeq));
+		MTWF_LOG(DBG_CAT_PROTO, CATPROTO_BA, DBG_LVL_TRACE, ("Start Seq = %08x\n",  pFrame->BaStartSeq.field.StartSeq));
 		
 
 		if (pEntry->RXBAbitmap & (1<<TID))
@@ -1294,7 +1294,7 @@ VOID PeerAddBAReqAction(RTMP_ADAPTER *pAd, MLME_QUEUE_ELEM *Elem)
 	{
 		if ((pAd->CommonCfg.bBADecline == FALSE) && IS_HT_STA(pMacEntry))
 		{
-			MTWF_LOG(DBG_CAT_PROTO, CATPROTO_BA, DBG_LVL_OFF, ("Rcv Wcid(%d) AddBAReq\n", Elem->Wcid));
+			MTWF_LOG(DBG_CAT_PROTO, CATPROTO_BA, DBG_LVL_TRACE, ("Rcv Wcid(%d) AddBAReq\n", Elem->Wcid));
 			if (BARecSessionAdd(pAd, &pAd->MacTab.Content[Elem->Wcid], pAddreqFrame))
 			{
 #ifdef PEER_DELBA_TX_ADAPT
