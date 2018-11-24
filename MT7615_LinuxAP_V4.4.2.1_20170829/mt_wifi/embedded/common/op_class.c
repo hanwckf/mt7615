@@ -57,7 +57,7 @@ typedef struct
 } REG_CLASS_VHT, *PREG_CLASS_VHT;
 
 /*
-	Table E-1뾑perating classes in the United States  (11N)
+	Table E-1혰Operating classes in the United States  (11N)
 */
 REG_CLASS reg_class_fcc[] =
 {
@@ -98,7 +98,7 @@ REG_CLASS reg_class_fcc[] =
 };
 
 /*
-	Table E-2뾑perating classes in Europe (11N)
+	Table E-2혰Operating classes in Europe (11N)
 */
 REG_CLASS reg_class_ce[] =
 {
@@ -128,7 +128,7 @@ REG_CLASS reg_class_ce[] =
 };
 
 /*
-	Table E-3뾑perating classes in Japan (11N)
+	Table E-3혰Operating classes in Japan (11N)
 */
 REG_CLASS reg_class_jp[] =
 {
@@ -217,7 +217,7 @@ REG_CLASS reg_class_cn[] =
 
 #ifdef DOT11_VHT_AC
 /*
-	Table E-1뾑perating classes in the United States  (11AC)
+	Table E-1혰Operating classes in the United States  (11AC)
 */
 REG_CLASS_VHT reg_class_vht_fcc[] =
 {
@@ -262,7 +262,7 @@ REG_CLASS_VHT reg_class_vht_fcc[] =
 
 
 /*
-	Table E-2뾑perating classes in Europe (11AC)
+	Table E-2혰Operating classes in Europe (11AC)
 */
 REG_CLASS_VHT reg_class_vht_ce[] =
 {
@@ -295,7 +295,7 @@ REG_CLASS_VHT reg_class_vht_ce[] =
 };
 
 /*
-	Table E-3뾑perating classes in Japan (11N)
+	Table E-3혰Operating classes in Japan (11N)
 */
 REG_CLASS_VHT reg_class_vht_jp[] =
 {

@@ -605,13 +605,13 @@ typedef struct GNU_PACKED _WSC_PEER_DEV_INFO {
 
 #ifdef WSC_NFC_SUPPORT
 /*
-		0 ¡V Command Result (1 byte)
+		0 -  Command Result (1 byte)
 		1 -  Configuration (WSC TLV)
-		2 ¡V Password (32 bytes)
-		3 ¡V IP address (4 bytes) 
-		4 ¡V RTSP port (4 bytes)
-		5 ¡V NFC Status (1 byte)
-		6 ¡V Wireless Radio Status (1byte)
+		2 -  Password (32 bytes)
+		3 -  IP address (4 bytes) 
+		4 -  RTSP port (4 bytes)
+		5 -  NFC Status (1 byte)
+		6 -  Wireless Radio Status (1byte)
 */
 #define TYPE_CMD_RESULT			0
 #define TYPE_CONFIGURATION		1

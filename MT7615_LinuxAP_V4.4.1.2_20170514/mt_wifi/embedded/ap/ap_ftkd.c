@@ -382,7 +382,7 @@ VOID TYPE_FUNC FT_KDP_EventInform(
 				When a STA associates or reassociates, the STA must ascertain
 				that its network layer address(es) is configured such that the
 				normal routing functions of the network attaching to the BSS
-				will correctly deliver the STA¡¦s traffic to the BSS to which
+				will correctly deliver the STA's traffic to the BSS to which
 				it is associated.
 
 				Two mechanisms for a STA to accomplish this are to renew a

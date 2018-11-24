@@ -201,7 +201,7 @@ typedef struct _VOW_CFG_T
     BOOLEAN en_bw_ctrl;  //enable bandwidth(airtime) control
     BOOLEAN en_bw_refill;   //enable token refill
     BOOLEAN en_airtime_fairness;    //enable airtime fairness
-    BOOLEAN en_txop_no_change_bss;  //enable HW doesn??¢t change BSS group in TXOP burst  
+    BOOLEAN en_txop_no_change_bss;  //enable HW doesn't change BSS group in TXOP burst  
     BOOLEAN dbdc0_search_rule;  //1 WMM set first, 0  WMM AC first
     BOOLEAN dbdc1_search_rule;  //1 WMM set first, 0  WMM AC first
     UINT8   refill_period;  //token refill period
